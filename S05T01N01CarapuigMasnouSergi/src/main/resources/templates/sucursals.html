@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Llistat de Sucursals</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto; 
+            border: 2px solid #333; 
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd; 
+        }
+
+        th {
+            background-color: #f2f2f2; 
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2; 
+        }
+
+        tbody tr:hover {
+            background-color: #ddd; 
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Llistat de Sucursals</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>País</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="sucursal : ${sucursals}">
+                <td th:text="${sucursal.pk_SucursalID}"></td>
+                <td th:text="${sucursal.nomSucursal}"></td>
+                <td th:text="${sucursal.paisSucursal}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
